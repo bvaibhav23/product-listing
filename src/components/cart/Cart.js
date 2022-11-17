@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const Cart = (props) => {
     // console.log(props.cartItem);
     const [getCart, setCart] = useState([]);
+    // eslint-disable-next-line
     useEffect(() => setCart(props.cartItem), [getCart])
 
     return <>
