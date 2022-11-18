@@ -46,7 +46,7 @@ const AxoisData = (props) => {
             }
         >
 
-            <div className="d-flex flex-wrap m-4  justify-content-center " >
+            <div className="d-flex flex-wrap m-3  justify-content-center " >
 
                 {
 
@@ -62,11 +62,12 @@ const AxoisData = (props) => {
                     }).map(({ name, image, price, selling_price, variation, fit }, index) => (
                         <div className="card m-3 shadow " key={index} style={{ width: "18rem" }} >
                             <img src={image} className="card-img-top" alt={name} />
-                            <div className={"card-body d-flex flex-column justify-content-between"}>
-                                <h5 className="card-title">{name}</h5>
+                            <div className={"card-body d-flex flex-column align-items-center text-center justify-content-between"}>
+                                <h6 className="card-title">{name}</h6>
                                 <p className="card-text "><del>₹{price} </del><span className="fw-bold">  ₹{selling_price}</span></p>
                                 {/* <p>{fit}</p> */}
-                                <Link to='/ShowMore'> <button className="btn btn-primary" onClick={() => { return props.onClickHandle(items[index]) }} >Show</button></Link>
+                                <div> <Link to='/ShowMore'> <button className="btn btn-primary" onClick={() => { return props.onClickHandle(items[index]) }} >Show</button></Link>
+                                </div>
                             </div>
                         </div>
                     ))

@@ -9,7 +9,6 @@ import Cart from './components/cart/Cart';
 import Contact from './components/Contact';
 import NavBar from './components/NavBar/NavBar';
 
-
 function App() {
   const [getSearch, setSearch] = useState("");
   const [cartItem, setItem] = useState([]);
@@ -24,9 +23,20 @@ function App() {
   }
   const AddToCart = (item) => {
     // console.log(item);
-    if (!cartItem.includes(item))
+    let isPersent = false;
+    cartItem.forEach((itm) => {
+      if (itm.id_product === item.id_product)
+        isPersent = true;
+    })
+    if (!isPersent)
       setItem([...cartItem, item]);
 
+  }
+  const removeHandler = (id) => {
+    const newList = cartItem.filter((itm) => itm.id_product !== id);
+
+    setItem(newList);
+    // console.log(newList)
   }
 
   return (<>
@@ -34,8 +44,8 @@ function App() {
 
 
     <Routes>
-      <Route exact path="/" element={<AxoisData getSearch={getSearch} onClickHandle={onClickHandle} />} />
-      <Route path="/cart" element={<Cart cartItem={cartItem} />} />
+      <Route exact path="/" element={<AxoisData getSearch={getSearch} AddToCart={AddToCart} onClickHandle={onClickHandle} />} />
+      <Route path="/cart" element={<Cart cartItem={cartItem} removeHandler={removeHandler} />} />
       <Route path='/ShowMore' element={<ShowMore ShowItem={ShowItem} AddToCart={AddToCart} />} />
       <Route path='/about' element={<About />} />
       <Route path='/contact' element={<Contact />} />

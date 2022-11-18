@@ -12,13 +12,12 @@ const ShowMore = (props) => {
                     <div className="d-inline ">
                         <img src={image} className="card-img-top border border-dark" alt={name} style={{ width: "18rem" }} />
 
+
                         <button className=" btn btn-outline-primary  m-3 " onClick={() => {
                             setToast(false)
                             console.log("Added to cart")
-                            setTimeout(() => setToast(true), 1000)
                             return props.AddToCart(props.ShowItem[index])
-                        }}>Add to Cart  </button>
-                        {toast ? <span></span> : <span className="border shadow border-dark p-2">Added to cart</span>}
+                        }}>{toast ? <span>Add To Cart</span> : <span>Added</span>}</button>
                     </div>
                     <p className="card-text ">Price:<del>₹{price} </del><span className="fw-bold fs-2"> Selling Price: ₹{selling_price}</span></p>
 
