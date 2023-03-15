@@ -4,9 +4,9 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { Link } from "react-router-dom";
 import "./AxiosData.css"
 
-const AxoisData = (props) => {
+const AxiosData = (props) => {
     const [items, setItems] = useState([]);
-    const [gethasMore, sethasMore] = useState(true);
+    const [getHasMore, setHasMore] = useState(true);
     let [page, setPage] = useState(1);
 
     const fetchData = (setItems, items) => {
@@ -20,7 +20,7 @@ const AxoisData = (props) => {
                 setItems([...items, ...res.data.result.products]);
                 setPage(page + 1);
                 if (items.length > 100) {
-                    sethasMore(false);
+                    setHasMore(false);
                 }
                 // console.log(items);
             });
@@ -37,7 +37,7 @@ const AxoisData = (props) => {
             next={() => {
                 fetchData(setItems, items);
             }}
-            hasMore={gethasMore}
+            hasMore={getHasMore}
             loader={<h4 style={{ textAlign: "center" }}>Loading...</h4>}
             endMessage={
                 <p style={{ textAlign: "center" }}>
@@ -61,7 +61,7 @@ const AxoisData = (props) => {
 
                     }).map(({ name, image, price, selling_price, variation, fit }, index) => (
                         <div className="card m-3 shadow " key={index} style={{ width: "18rem" }} >
-                            <img src={image} className="card-img-top" alt={name} />
+                            <img src={image} className="card-img-top" alt={name} width="260vh" height="400vh" />
                             <div className={"card-body d-flex flex-column align-items-center text-center justify-content-between"}>
                                 <h6 className="card-title">{name}</h6>
                                 <p className="card-text "><del>₹{price} </del><span className="fw-bold">  ₹{selling_price}</span></p>
@@ -80,4 +80,4 @@ const AxoisData = (props) => {
     </>
     );
 }
-export default AxoisData
+export default AxiosData

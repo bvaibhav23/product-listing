@@ -7,9 +7,11 @@ const NavBar = (props) => {
         <div className="container-fluid">
           <Link to="/" className="navbar-brand">
             <img
-              className="w-50 "
               src="https://wforwomanonline.com/images/logo.png"
-              alt="logo"></img>
+              alt="logo"
+              width="100%"
+              height="50vh"
+            ></img>
           </Link>
 
           <button
