@@ -31,7 +31,7 @@ const ShowMore = (props) => {
                             {
 
                                 gallery.map((val, i) => {
-                                    return <div className="carousel-item " key={i}  >
+                                    return i !== 0 && <div className="carousel-item " key={i}  >
                                         <img src={val.image} className="d-block w-25 m-auto" alt="" />
                                     </div>
 
