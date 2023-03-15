@@ -49,17 +49,6 @@ const ShowMore = (props) => {
                     </div>
 
 
-                    {/* <div className={"card-body  d-flex felx-column "}>
-                        {
-                            
-                            gallery.map((val, i) => {
-                                return <div className="d-flex flex-wrap  m-2" key={i}  >
-                                    <img src={val.image} className="shadow border border-dark" alt="" style={{ width: "10rem" }} />
-                                </div>
-
-                            })
-                        }
-                    </div> */}
 
 
 

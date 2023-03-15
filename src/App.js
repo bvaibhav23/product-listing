@@ -3,8 +3,8 @@ import { Route, Routes } from "react-router-dom"
 import './App.css';
 import About from './components/About';
 
-import AxoisData from './components/AxoisData/AxiosData';
-import ShowMore from './components/AxoisData/ShowMore';
+import AxiosData from './components/AxiosData/AxiosData';
+import ShowMore from './components/AxiosData/ShowMore';
 import Cart from './components/cart/Cart';
 import Contact from './components/Contact';
 import NavBar from './components/NavBar/NavBar';
@@ -23,12 +23,12 @@ function App() {
   }
   const AddToCart = (item) => {
     // console.log(item);
-    let isPersent = false;
+    let isPresent = false;
     cartItem.forEach((itm) => {
       if (itm.id_product === item.id_product)
-        isPersent = true;
+        isPresent = true;
     })
-    if (!isPersent)
+    if (!isPresent)
       setItem([...cartItem, item]);
 
   }
@@ -44,11 +44,12 @@ function App() {
 
 
     <Routes>
-      <Route exact path="/" element={<AxoisData getSearch={getSearch} AddToCart={AddToCart} onClickHandle={onClickHandle} />} />
+      <Route exact path="/" element={<AxiosData getSearch={getSearch} AddToCart={AddToCart} onClickHandle={onClickHandle} />} />
       <Route path="/cart" element={<Cart cartItem={cartItem} removeHandler={removeHandler} />} />
       <Route path='/ShowMore' element={<ShowMore ShowItem={ShowItem} AddToCart={AddToCart} />} />
       <Route path='/about' element={<About />} />
       <Route path='/contact' element={<Contact />} />
+      <Route path="*" element={<AxiosData />} />
     </Routes>
   </>);
 }
